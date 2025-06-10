@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -7,14 +8,14 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Publications', href: '#publications' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: 'home' },
+    { name: 'About', href: 'about' },
+    { name: 'Skills', href: 'skills' },
+    { name: 'Experience', href: 'experience' },
+    { name: 'Projects', href: 'projects' },
+    { name: 'Publications', href: 'publications' },
+    { name: 'Testimonials', href: 'testimonials' },
+    { name: 'Contact', href: 'contact' },
   ];
 
   const scrollToSection = (sectionId: string) => {

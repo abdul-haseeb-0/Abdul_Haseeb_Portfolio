@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="flex justify-center mb-8">
             <Avatar className="w-32 h-32 ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
               <AvatarImage 
-                src="/api/placeholder/200/200" 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                 alt="Abdul Haseeb"
                 className="object-cover"
               />
