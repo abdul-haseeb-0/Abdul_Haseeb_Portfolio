@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,6 +16,20 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-accent/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8 fade-in-up">
+          {/* Professional Photo */}
+          <div className="flex justify-center mb-8">
+            <Avatar className="w-32 h-32 ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
+              <AvatarImage 
+                src="/api/placeholder/200/200" 
+                alt="Abdul Haseeb"
+                className="object-cover"
+              />
+              <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-primary to-accent text-primary-foreground">
+                AH
+              </AvatarFallback>
+            </Avatar>
+          </div>
+
           {/* Main heading */}
           <div className="space-y-6">
             <div className="space-y-2">

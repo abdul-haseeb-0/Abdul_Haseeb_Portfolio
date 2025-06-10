@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -8,12 +7,14 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Publications', href: '#publications' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -30,13 +31,13 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
       
       // Update active section
-      const sections = navItems.map(item => document.getElementById(item.id));
+      const sections = navItems.map(item => document.getElementById(item.href));
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
+          setActiveSection(navItems[i].href);
           break;
         }
       }
@@ -67,15 +68,15 @@ const Navigation = () => {
             <div className="flex items-center space-x-1">
               {navItems.map((item) => (
                 <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    activeSection === item.id
+                    activeSection === item.href
                       ? 'text-primary bg-primary/10'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
                   }`}
                 >
-                  {item.label}
+                  {item.name}
                 </button>
               ))}
             </div>
@@ -99,15 +100,15 @@ const Navigation = () => {
           <div className="px-4 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                key={item.href}
+                onClick={() => scrollToSection(item.href)}
                 className={`block w-full text-left px-3 py-3 rounded-lg text-base font-medium transition-colors ${
-                  activeSection === item.id
+                  activeSection === item.href
                     ? 'text-primary bg-primary/10'
                     : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
                 }`}
               >
-                {item.label}
+                {item.name}
               </button>
             ))}
           </div>
