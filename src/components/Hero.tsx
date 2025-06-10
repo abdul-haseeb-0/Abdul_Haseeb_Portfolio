@@ -1,66 +1,91 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-primary/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground">
-              Abdul <span className="text-primary">Haseeb</span>
-            </h1>
-            <div className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-medium">
-              <span className="block">Accountant | AI Developer</span>
-              <span className="block mt-2 text-lg sm:text-xl lg:text-2xl">Gen AI & Prompt Engineer</span>
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-accent/5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-8 fade-in-up">
+          {/* Main heading */}
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <p className="text-primary font-medium text-lg tracking-wide">Hello, I'm</p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+                Abdul <span className="text-primary">Haseeb</span>
+              </h1>
+            </div>
+            
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-muted-foreground">
+                Accountant & AI Developer
+              </h2>
+              <p className="text-lg sm:text-xl text-accent font-medium">
+                Building the future of financial automation
+              </p>
             </div>
           </div>
           
-          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-muted-foreground leading-relaxed">
-            Bridging the gap between traditional finance and cutting-edge AI technology. 
-            I specialize in automating accounting workflows and developing AI-powered solutions 
-            for financial decision-making.
+          {/* Description */}
+          <p className="max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
+            I bridge traditional finance with cutting-edge AI technology, creating intelligent solutions 
+            that transform accounting workflows and enhance business decision-making.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="min-w-[200px]" onClick={scrollToAbout}>
-              Explore My Work
-              <ArrowDown className="ml-2 h-4 w-4" />
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Button 
+              size="lg" 
+              className="group min-w-[200px] h-12 text-base"
+              onClick={() => scrollToSection('projects')}
+            >
+              View My Work
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <div className="flex gap-4">
-              <Button variant="outline" size="icon" asChild>
-                <a href="mailto:abdulhaseebmirza69@gmail.com" aria-label="Email">
-                  <Mail className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a href="#" aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a href="#" aria-label="GitHub">
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
-            </div>
+            
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="min-w-[200px] h-12 text-base border-2"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download CV
+            </Button>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-4 pt-8">
+            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
+              <a href="mailto:abdulhaseebmirza69@gmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer">
+                <Mail className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
+              <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
+              <a href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>
       
-      {/* Floating elements for visual interest */}
+      {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
       </div>
     </section>
   );
