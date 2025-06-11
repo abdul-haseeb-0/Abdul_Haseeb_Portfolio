@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,7 @@ const Contact = () => {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    const mailtoLink = `mailto:abdulhaseeb.dev0@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:abdulhaseebmirza69@gmail.com?subject=${subject}&body=${body}`;
     
     // Open user's email client
     window.location.href = mailtoLink;
@@ -47,8 +46,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'abdulhaseeb.dev0@gmail.com',
-      href: 'mailto:abdulhaseeb.dev0@gmail.com'
+      value: 'abdulhaseebmirza69@gmail.com',
+      href: 'mailto:abdulhaseebmirza69@gmail.com'
     },
     {
       icon: Phone,
