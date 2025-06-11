@@ -8,7 +8,7 @@ const Experience = () => {
   const experiences = [
     {
       title: "Accountant",
-      company: "Multiple Local Businesses",
+      company: "Multiple Businesses",
       location: "Sutar Mandi, Faisalabad",
       period: "Mar 2024 – Present",
       type: "Full-time",
@@ -23,11 +23,11 @@ const Experience = () => {
     },
     {
       title: "AI Developer",
-      company: "Self-Employed",
+      company: "Personal Projects",
       location: "Remote",
       period: "Jan 2024 – Present",
-      type: "Freelance",
-      description: "Developing and deploying AI-powered applications with focus on financial automation and business intelligence solutions.",
+      type: "Development",
+      description: "Developing and deploying AI-powered applications with focus automation and business intelligence solutions.",
       achievements: [
         "Built and deployed multiple AI applications including financial chatbots",
         "Integrated RAG (Retrieval-Augmented Generation) systems for document analysis",
@@ -40,19 +40,19 @@ const Experience = () => {
 
   const projects = [
     {
-      title: "AI-Powered Financial Chatbot",
+      title: "Finance Chatbot",
       description: "Developed an intelligent chatbot that can answer financial queries and generate reports",
       technologies: ["Python", "LLMs", "RAG", "Financial APIs"]
     },
     {
-      title: "Automated Data Processing Pipeline",
-      description: "Created automated workflows for cleaning and analyzing financial data",
-      technologies: ["Python", "PostgreSQL", "Data Analysis", "Automation"]
+      title: "RAG-based Document Analysis",
+      description: "Built RAG-based system for fast document analysis and extracting insights from financial documents",
+      technologies: ["RAG", "Document Processing", "AI", "Business Intelligence"]
     },
     {
-      title: "Document Analysis System",
-      description: "Built RAG-based system for analyzing and extracting insights from financial documents",
-      technologies: ["RAG", "Document Processing", "AI", "Business Intelligence"]
+      title: "Ledger Matcher",
+      description: "Created automated workflows for cleaning and analyzing financial data with smart matching algorithms",
+      technologies: ["Python", "PostgreSQL", "Data Analysis", "Automation"]
     }
   ];
 

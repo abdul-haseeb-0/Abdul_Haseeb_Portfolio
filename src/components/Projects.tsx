@@ -8,7 +8,7 @@ import { Github, Code, Database, Briefcase } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "AI Financial Assistant",
+      title: "Finance Chatbot",
       category: "AI Development",
       icon: Code,
       description: "A comprehensive AI-powered chatbot that helps businesses with financial queries, report generation, and data analysis. Built using advanced LLMs and RAG architecture for accurate and contextual responses.",
@@ -23,56 +23,40 @@ const Projects = () => {
       impact: "Reduced query response time by 80% for client businesses"
     },
     {
-      title: "Automated Ledger Management System",
-      category: "Process Automation",
+      title: "RAG-based Document Analysis",
+      category: "Document Processing",
       icon: Database,
-      description: "An intelligent system that automates traditional ledger management processes, including data entry, reconciliation, and error detection using machine learning algorithms.",
+      description: "An intelligent system for fast document analysis using Retrieval-Augmented Generation, including automated data extraction and insight generation from financial documents.",
       features: [
-        "Automated data entry from invoices",
-        "Smart reconciliation algorithms",
-        "Error detection and correction",
-        "Real-time financial reporting"
+        "Fast document processing and analysis",
+        "Smart information extraction",
+        "Contextual insights generation",
+        "Multi-format document support"
       ],
-      technologies: ["Python", "PostgreSQL", "Excel Integration", "OCR", "ML"],
+      technologies: ["Python", "RAG", "Document AI", "NLP", "Vector DBs"],
       status: "Production",
-      impact: "Improved accuracy by 95% and reduced manual work by 70%"
+      impact: "Improved document processing speed by 90% and accuracy by 95%"
     },
     {
-      title: "Business Intelligence Dashboard",
-      category: "Data Analytics",
+      title: "Ledger Matcher",
+      category: "Financial Automation",
       icon: Briefcase,
-      description: "A comprehensive dashboard that provides real-time insights into business performance, financial trends, and predictive analytics for textile businesses in Sutar Mandi.",
+      description: "An automated ledger management system that matches transactions, detects discrepancies, and maintains accurate financial records using machine learning algorithms.",
       features: [
-        "Real-time performance metrics",
-        "Predictive financial analysis",
-        "Interactive data visualizations",
-        "Custom report generation"
+        "Automated transaction matching",
+        "Discrepancy detection and alerts",
+        "Smart reconciliation algorithms",
+        "Real-time financial reporting"
       ],
-      technologies: ["Python", "Streamlit", "Plotly", "MongoDB", "AI Analytics"],
-      status: "Development",
-      impact: "Enables data-driven decisions for 15+ local businesses"
+      technologies: ["Python", "Pandas", "ML Algorithms", "PostgreSQL", "Excel Integration"],
+      status: "Production",
+      impact: "Enables accurate ledger management for 10+ businesses"
     }
   ];
 
-  const hackathons = [
-    {
-      name: "Global AI Hackathon 2024",
-      project: "FinTech AI Assistant",
-      achievement: "Top 10 Finalist",
-      description: "Developed an AI assistant for small businesses to automate financial workflows"
-    },
-    {
-      name: "Pakistan Tech Summit 2024",
-      project: "Smart Ledger AI",
-      achievement: "Best Innovation Award",
-      description: "Created an AI-powered solution for traditional accounting practices"
-    },
-    {
-      name: "International FinTech Challenge",
-      project: "Document Analysis AI",
-      achievement: "Participant",
-      description: "Built RAG-based system for financial document processing"
-    }
+  const stats = [
+    { label: "Businesses Helped", value: "10+" },
+    { label: "Hackathons Participated", value: "Multiple" }
   ];
 
   return (
@@ -85,8 +69,18 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Stats */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+              <div className="text-lg text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
         {/* Main Projects */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
@@ -152,29 +146,20 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Hackathons */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-foreground text-center">Hackathon Participation</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {hackathons.map((hackathon, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-foreground">{hackathon.name}</h4>
-                      <p className="text-sm font-medium text-primary">{hackathon.project}</p>
-                    </div>
-                    <Badge variant={hackathon.achievement.includes('Award') ? 'default' : 'secondary'}>
-                      {hackathon.achievement}
-                    </Badge>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {hackathon.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Start</h3>
+          <p className="text-muted-foreground mb-6">
+            I participated in multiple international hackathons and worked with multiple teams on innovative solutions.
+          </p>
+          <Button size="lg" onClick={() => {
+            const element = document.getElementById('contact');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}>
+            Get In Touch
+          </Button>
         </div>
       </div>
     </section>

@@ -39,12 +39,12 @@ const Skills = () => {
       ]
     },
     {
-      title: "Data Management",
+      title: "Data Science & Analysis",
       icon: "📊",
       skills: [
-        { name: "PostgreSQL", level: 82 },
-        { name: "MongoDB", level: 80 },
-        { name: "SQL", level: 85 },
+        { name: "Pandas", level: 85 },
+        { name: "NumPy", level: 82 },
+        { name: "OpenCV", level: 78 },
         { name: "Data Preprocessing", level: 87 },
         { name: "Automated Data Analysis", level: 88 }
       ]
@@ -62,7 +62,8 @@ const Skills = () => {
       title: "Generative AI & Prompt Engineering",
       provider: "Multiple Providers",
       status: "Completed",
-      focus: "Large Language Models (LLMs), RAG-based Applications, AI in Business"
+      focus: "Large Language Models (LLMs), RAG-based Applications, AI in Business",
+      link: "https://drive.google.com/file/d/1ov-Pfn_-fv6COlfqFGctQxcwmGAT0_mD/view?usp=sharing"
     },
     {
       title: "Intermediate in Computer Science (ICS)",
@@ -116,7 +117,15 @@ const Skills = () => {
                 <CardContent className="p-6">
                   <div className="space-y-3">
                     <div className="flex items-start justify-between">
-                      <h4 className="font-semibold text-foreground leading-tight">{cert.title}</h4>
+                      <h4 className="font-semibold text-foreground leading-tight">
+                        {cert.link ? (
+                          <a href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                            {cert.title}
+                          </a>
+                        ) : (
+                          cert.title
+                        )}
+                      </h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                         cert.status === 'Ongoing' 
                           ? 'bg-primary/10 text-primary' 

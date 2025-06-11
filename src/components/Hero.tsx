@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="flex justify-center mb-8">
             <Avatar className="w-32 h-32 ring-4 ring-primary/20 ring-offset-4 ring-offset-background">
               <AvatarImage 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                src="/lovable-uploads/2cce3b83-391b-439e-bebf-8347da1c4036.png" 
                 alt="Abdul Haseeb"
                 className="object-cover"
               />
@@ -41,7 +41,7 @@ const Hero = () => {
             
             <div className="space-y-4">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-muted-foreground">
-                Accountant & AI Developer
+                Accountant - AI Developer - Data Science - GenAI & Prompt Engineer
               </h2>
               <p className="text-lg sm:text-xl text-accent font-medium">
                 Building the future of financial automation
@@ -70,9 +70,12 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="min-w-[200px] h-12 text-base border-2"
+              asChild
             >
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
+              <a href="https://drive.google.com/file/d/18Z0UdZUvNh6BCNQZ11FfSlh8CyPbPShe/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </a>
             </Button>
           </div>
 
@@ -84,12 +87,12 @@ const Hero = () => {
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
-              <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/abdul-haseeb-980075323/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
-              <a href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <a href="http://github.com/abdul-haseeb-0/" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
               </a>
             </Button>

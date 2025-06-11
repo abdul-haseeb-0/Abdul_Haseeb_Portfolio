@@ -21,7 +21,7 @@ const About = () => {
     {
       icon: Code2,
       title: "Technical Skills",
-      description: "Full-stack development with focus on AI integration",
+      description: "AI developer with focus on AI integration",
       color: "text-green-600"
     },
     {
