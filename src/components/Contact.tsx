@@ -17,11 +17,22 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
+    
+    // Create mailto link to open user's email client
+    const subject = encodeURIComponent(`Contact from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoLink = `mailto:abdulhaseeb.dev0@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: "Email Client Opened",
+      description: "Your email client should open with the message pre-filled. Please send it from there.",
     });
+    
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -63,7 +74,7 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'http://github.com/abdul-haseeb-0/',
+      href: 'https://github.com/abdul-haseeb-0/',
       color: 'text-gray-700 hover:text-gray-900'
     }
   ];
@@ -187,7 +198,7 @@ const Contact = () => {
 
                 <Button type="submit" size="lg" className="w-full">
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  Open Email Client
                 </Button>
               </form>
             </CardContent>
