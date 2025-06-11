@@ -1,179 +1,203 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Github, Linkedin, MapPin, Phone } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, MapPin, Linkedin, Github, Send } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate form submission
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for your message. I'll get back to you soon.",
+    });
+    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "abdulhaseebmirza69@gmail.com",
-      href: "mailto:abdulhaseebmirza69@gmail.com",
-      primary: true
+      label: 'Email',
+      value: 'abdulhaseeb.dev0@gmail.com',
+      href: 'mailto:abdulhaseeb.dev0@gmail.com'
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: "+92 326 1087203",
-      href: "tel:+923261087203"
+      label: 'Phone',
+      value: '+92 123 456 7890',
+      href: 'tel:+92123456789'
     },
     {
       icon: MapPin,
-      label: "Location",
-      value: "Faisalabad, Pakistan",
+      label: 'Location',
+      value: 'Pakistan',
       href: null
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/abdul-haseeb",
-      href: "#"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/abdulhaseeb",
-      href: "#"
     }
   ];
 
-  const quickStats = [
-    { label: "Years in Accounting", value: "1+" },
-    { label: "AI Projects Completed", value: "10+" },
-    { label: "Hackathons Participated", value: "5+" },
-    { label: "Businesses Helped", value: "15+" }
+  const socialLinks = [
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/abdul-haseeb-980075323/',
+      color: 'text-blue-600 hover:text-blue-700'
+    },
+    {
+      icon: Github,
+      label: 'GitHub',
+      href: 'http://github.com/abdul-haseeb-0/',
+      color: 'text-gray-700 hover:text-gray-900'
+    }
   ];
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Let's Connect</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring innovative AI solutions to your financial workflows? Let's discuss how we can work together.
+            Ready to transform your business with AI-powered solutions? Let's discuss your next project.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Get In Touch</CardTitle>
-                <p className="text-muted-foreground">
-                  I'm always interested in discussing new opportunities, innovative projects, 
-                  and collaborations in the intersection of finance and AI technology.
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {contactInfo.map((contact, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      contact.primary ? 'bg-primary text-primary-foreground' : 'bg-muted'
-                    }`}>
-                      <contact.icon className="w-5 h-5" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-medium text-foreground">{contact.label}</p>
-                      {contact.href ? (
-                        <a 
-                          href={contact.href}
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {contact.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground">{contact.value}</p>
-                      )}
-                    </div>
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
+              <p className="text-muted-foreground mb-8">
+                I'm always interested in discussing new opportunities and innovative projects. 
+                Whether you need AI development, financial automation, or data analysis solutions, 
+                I'm here to help bring your ideas to life.
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="space-y-4">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
+                  <div>
+                    <p className="font-medium text-foreground">{item.label}</p>
+                    {item.href ? (
+                      <a 
+                        href={item.href}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground">{item.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">Follow Me</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 bg-background rounded-lg flex items-center justify-center border hover:border-primary/50 transition-all duration-200 ${social.color}`}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
                 ))}
-              </CardContent>
-            </Card>
-
-            {/* Call to Action */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground">Ready to Start a Project?</h3>
-                  <p className="text-muted-foreground">
-                    Whether you need accounting automation, AI-powered financial tools, 
-                    or innovative solutions for your business challenges, I'm here to help.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" asChild>
-                      <a href="mailto:abdulhaseebmirza69@gmail.com">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Send Email
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="lg" asChild>
-                      <a href="#about">
-                        Learn More About Me
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
-          {/* Quick Stats */}
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">Quick Stats</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {quickStats.map((stat, index) => (
-                    <div key={index} className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">{stat.label}</span>
-                      <span className="text-2xl font-bold text-primary">{stat.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-center space-y-4">
-                  <h3 className="text-lg font-semibold text-foreground">Currently Available</h3>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm text-muted-foreground">Open for new opportunities</span>
+          {/* Contact Form */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Send a Message</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                      Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your name"
+                      required
+                    />
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Actively seeking full-time positions in FinTech, AI development, 
-                    or accounting automation roles.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-center space-y-4">
-                  <h3 className="text-lg font-semibold text-foreground">Specializations</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <p>• Financial Process Automation</p>
-                    <p>• AI-Powered Accounting Tools</p>
-                    <p>• Data Analysis & Reporting</p>
-                    <p>• Business Intelligence Solutions</p>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your.email@example.com"
+                      required
+                    />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    Message *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project..."
+                    rows={6}
+                    required
+                  />
+                </div>
+
+                <Button type="submit" size="lg" className="w-full">
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-border text-center">
+        <div className="text-center mt-16 pt-8 border-t border-border">
           <p className="text-muted-foreground">
-            © 2024 Abdul Haseeb. Built with modern web technologies and a passion for innovation.
+            © 2024 Abdul Haseeb.
           </p>
         </div>
       </div>
