@@ -1,7 +1,6 @@
 
 import React from 'react';
 import ContactInfo from './ContactInfo';
-import ContactForm from './ContactForm';
 import SocialLinks from './SocialLinks';
 
 const Contact = () => {
@@ -15,15 +14,10 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <ContactInfo />
-            <SocialLinks />
-          </div>
-
-          {/* Contact Form */}
-          <ContactForm />
+        {/* Contact Information - now taking full width */}
+        <div className="max-w-2xl mx-auto space-y-8">
+          <ContactInfo />
+          <SocialLinks />
         </div>
 
         {/* Footer */}
