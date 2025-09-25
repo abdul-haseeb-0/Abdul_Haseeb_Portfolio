@@ -3,15 +3,16 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { CV_URL, SOCIAL_LINKS } from '@/lib/constants';
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-accent/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +73,7 @@ const Hero = () => {
               className="min-w-[200px] h-12 text-base border-2"
               asChild
             >
-              <a href="https://drive.google.com/file/d/18Z0UdZUvNh6BCNQZ11FfSlh8CyPbPShe/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href={CV_URL} target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </a>
@@ -81,21 +82,13 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center gap-4 pt-8">
-            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
-              <a href="mailto:abdulhaseebmirza69@gmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer">
-                <Mail className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
-              <a href="https://www.linkedin.com/in/abdul-haseeb-980075323/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" asChild>
-              <a href="http://github.com/abdul-haseeb-0/" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
+            {SOCIAL_LINKS.map((social) => (
+              <Button key={social.label} variant="ghost" size="icon" className="h-12 w-12 hover:bg-primary/10 hover:text-primary" title={social.description} asChild>
+                <a href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer">
+                  <social.icon className="h-5 w-5" />
+                </a>
+              </Button>
+            ))}
           </div>
         </div>
       </div>

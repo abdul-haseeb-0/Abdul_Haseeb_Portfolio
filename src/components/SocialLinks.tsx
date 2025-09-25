@@ -1,30 +1,14 @@
 
 import React from 'react';
-import { Linkedin, Github, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/lib/constants';
 
 const SocialLinks = () => {
-  const socialLinks = [
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/abdul-haseeb-980075323/',
-      color: 'hover:text-blue-600',
-      description: 'Professional network'
-    },
-    {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/abdul-haseeb-0/',
-      color: 'hover:text-gray-900 dark:hover:text-gray-100',
-      description: 'Code repositories'
-    }
-  ];
-
   return (
     <div className="text-center">
       <h4 className="font-bold text-foreground mb-6 text-xl">Follow My Journey</h4>
       <div className="flex justify-center gap-6">
-        {socialLinks.map((social, index) => (
+        {SOCIAL_LINKS.filter(s => s.label !== 'Email').map((social, index) => (
           <a
             key={index}
             href={social.href}

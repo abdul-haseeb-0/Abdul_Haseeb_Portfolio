@@ -55,8 +55,8 @@ const Testimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-0 shadow-sm">
+          {testimonials.map((testimonial) => (
+            <Card key={testimonial.name} className="group hover:shadow-lg transition-all duration-300 border-0 shadow-sm">
               <CardContent className="p-6">
                 <div className="space-y-4">
                   {/* Quote Icon */}

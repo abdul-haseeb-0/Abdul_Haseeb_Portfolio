@@ -85,8 +85,8 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300">
+          {skillCategories.map((category) => (
+            <Card key={category.title} className="group hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-xl">
                   <span className="text-2xl">{category.icon}</span>
@@ -94,8 +94,8 @@ const Skills = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
+                {category.skills.map((skill) => (
+                  <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-sm font-medium text-foreground">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
@@ -112,8 +112,8 @@ const Skills = () => {
         <div className="space-y-8">
           <h3 className="text-2xl font-bold text-foreground text-center">Education & Certifications</h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+            {certifications.map((cert) => (
+              <Card key={cert.title} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="space-y-3">
                     <div className="flex items-start justify-between">
